@@ -1,2 +1,2 @@
-# docode
-A document tool within your masterpiece.
+# Docogen
+A document generation tool within your masterpiece.

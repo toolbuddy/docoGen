@@ -1,6 +1,6 @@
 {
   "name": "docogen",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Build your website, doc, and paper one time.",
   "main": "main.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/toolbuddy/docogen/issues"
   },
-  "dependencies":{
+  "dependencies": {
     "filehound": "^1.16.2",
     "fs-extra": "~4.0.2",
     "node-latex-pdf": "~0.0.2",

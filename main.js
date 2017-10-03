@@ -7,9 +7,9 @@ const fh = require("filehound");
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const docogen = {};
+// const docogen = {};
 
-docogen.generate_latexpdf = function(src,dest,options,cb){
+exports.generate_latexpdf = function(src,dest,options,cb){
     // find our file extension name
     const files = fh.create().paths(src).ext('docogen').find((err,files) => {
         if(err)
@@ -43,7 +43,7 @@ docogen.generate_latexpdf = function(src,dest,options,cb){
     });
 }
 
-docogen.generate_mdpdf = function(src,dest,options,cb){
+exports.generate_mdpdf = function(src,dest,options,cb){
     // find our file extension
     const files = fh.create().paths(src).ext('docogen').find((err,files) => {
         if(err)
@@ -222,4 +222,4 @@ function trans2latex(jsObj){
     return latex_content;
 }
 
-module.exports = docogen;
+// module.exports = docogen;

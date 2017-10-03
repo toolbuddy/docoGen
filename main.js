@@ -15,6 +15,13 @@ exports.generate_latexpdf = function(src,dest,options,cb){
         if(err)
             cb(1,"error");
         else{
+            // strip all test file in node_modules
+            for(var index in files){
+                if(files[index].indexOf('node_modules') != -1){
+                    files.splice(index,1);
+                }
+            }
+            // doing the work without merging
             if(files.length <= 1){
                 // get file name 
                 let fname = '';
@@ -29,15 +36,16 @@ exports.generate_latexpdf = function(src,dest,options,cb){
                 let output = `${options.output}.dgtmp` || `${rs.generate(5)}-${fname}.dgtmp`;
                 fs.writeFileSync(`${os.tmpdir()}/${output}`,trans2latex(JSON.parse(fs.readFileSync(files[0],'utf-8'))));
                 // convert to latex pdf 
-                latex(`${os.tmpdir()}/${output}`,dest,(err,msg) => {
+                latex(`${os.tmpdir()}/${output}`,dest,(err,pdfPath) => {
                     if(err)
                         cb(1,"latex error");
                     else
-                        cb(0,`[Docogen] Job done. ${src} successfully convert into latex pdf format in ${dest}`);
+                        cb(0,`[Docogen] Job done. ${src} successfully convert into latex pdf format in ${pdfPath}`);
                 })
             }
             else{
                 // [TODO] for multiple docogen files merging
+                cb(0,`Not support in current version.`)
             }
         }
     });
@@ -49,6 +57,12 @@ exports.generate_mdpdf = function(src,dest,options,cb){
         if(err)
             cb(1,"error");
         else{
+            // strip all test file in node_modules
+            for(var index in files){
+                if(files[index].indexOf('node_modules') != -1){
+                    files.splice(index,1);
+                }
+            }
             if(files.length <= 1){
                 // get file name 
                 let fname = '';
@@ -81,6 +95,7 @@ exports.generate_mdpdf = function(src,dest,options,cb){
             }
             else{
                 // [TODO] for multiple docogen files merging
+                cb(0,`Not support in current version.`)
             }
         }
     });

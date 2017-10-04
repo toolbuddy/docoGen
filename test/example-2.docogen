@@ -1,0 +1,56 @@
+{
+    "article": [
+        {
+            "name": "Merging test(priority 3)",
+            "priority": 3,
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Testing docogen merging work.",
+                    "figure": "",
+                    "subarticle": [
+                        {
+                            "name": "Merging sub.",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "None.",
+                                    "figure": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Merging test(priority -1)",
+            "priority": -1,
+            "content": [
+                {
+                    "type": "text",
+                    "text": "None.",
+                    "figure": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
+                    "subarticle": [
+                        {
+                            "name": "Merging sub.",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "None.",
+                                    "figure": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "reference":[
+        {
+            "name": "ToolBuddy",
+            "content": "A good, non-profit organization."
+        }
+    ]
+}

@@ -12,12 +12,17 @@
         }
     ],
     "abstract":{
-        "content": "I went down to the river,\nI set down on the bank.\nI tried to think but couldn't,\nSo I jumped in and sank.\n"
+        "content": [
+            "I went down to the river,"
+            , "I set down on the bank."
+            , "I tried to think but couldn't,"
+            , "So I jumped in and sank."
+        ]
     },
     "article": [
         {
             "name": "What is Docogen?",
-            "priority": "1",
+            "priority": 1,
             "content": [
                 {
                     "type": "text",
@@ -39,8 +44,8 @@
             ]
         },
         {
-            "name": "What is toolbuddy?",
-            "priority": "2",
+            "name": "What is toolbuddy\\cite{ToolBuddy}?",
+            "priority": 2,
             "content": [
                 {
                     "type": "text",

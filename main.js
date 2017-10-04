@@ -44,8 +44,18 @@ exports.generate_latexpdf = function(src,dest,options,cb){
                 })
             }
             else{
-                // [TODO] for multiple docogen files merging
-                cb(0,`Not support in current version.`)
+                // multiple docogen files merging
+                // using defined output filename or not 
+                let output = `${options.output}.dgtmp` || `${rs.generate(5)}-merginglatex.dgtmp`;
+                // merging
+                fs.writeFileSync(`${os.tmpdir()}/${output}`,trans2latex(this.merge_docogen(files)));
+                // convert to latex pdf 
+                latex(`${os.tmpdir()}/${output}`,dest,(err,pdfPath) => {
+                    if(err)
+                        cb(1,"latex error");
+                    else
+                        cb(0,`[Docogen - Merging process] Job done. ${src} successfully convert into latex pdf format in ${pdfPath}`);
+                })
             }
         }
     });
@@ -94,16 +104,86 @@ exports.generate_mdpdf = function(src,dest,options,cb){
                 });
             }
             else{
-                // [TODO] for multiple docogen files merging
-                cb(0,`Not support in current version.`)
+                // multiple docogen files merging
+                // using defined output filename or not 
+                let output = `${options.output}.pdf` || `${rs.generate(5)}-mergingmd.pdf`;
+                fs.writeFileSync(os.tmpdir()+'/'+output+'.md',trans2md(this.merge_docogen(files)));
+                let opt = {
+                    source: os.tmpdir()+'/'+output+'.md',
+                    destination: path.join(dest,output),
+                    pdf: {
+                        format: 'A4',
+                        header: {
+                            height: 0
+                        }
+                    }
+                };
+                // converting
+                mdpdf.convert(opt).then((pdfPath) => {
+                    cb(0,`[Docogen - Merging process] Job done. ${src} successfully convert into markdown pdf format in ${pdfPath}`);
+                }).catch((err) => {
+                    cb(1,`[Docogen] Job failed.`);
+                });
             }
         }
     });
 }
 
+exports.merge_docogen = function(src_arr,options){
+    // here comes the files list
+    let jsobj = {};
+    console.log("Have " + src_arr.length + " files.");
+    if(options.detail == true){
+        console.dir(src_arr); // print out all the files name
+    }
+    // Support "article","reference" part merging
+    for(var index in src_arr){
+        var tmp = JSON.parse(fs.readFileSync(src_arr[index],'utf-8'));
+        // ============ set title (only one time) ============
+        if(tmp.title != undefined && jsobj.title == undefined){
+            jsobj.title = tmp.title;
+        }
+        // ============ set options (only one time) ============
+        if(tmp.options != undefined && jsobj.options == undefined){
+            jsobj.options = tmp.options;
+        }
+        // ============ set author (only one time) ============
+        if(tmp.author != undefined && jsobj.author == undefined){
+            jsobj.author = tmp.author;
+        }
+        // ============ set abstract (only one time) ============
+        if(tmp.abstract != undefined && jsobj.abstract == undefined){
+            jsobj.abstract = tmp.abstract;
+        }
+        // ============ merge article ============
+        if(tmp.article != undefined && jsobj.article == undefined){
+            // first time setting
+            jsobj.article = tmp.article;
+        }
+        else if( tmp.article != undefined && jsobj.article.length >= 1 ){
+            // concat then sort , by priority 
+            jsobj.article = jsobj.article.concat(tmp.article);
+            // sort by prority 
+            jsobj.article.sort(function(a,b){
+                return (a.priority - b.priority);
+            });
+        }
+        // ============ merge reference ============
+        if( tmp.reference != undefined ){
+            if( jsobj.reference == undefined ) jsobj.reference = tmp.reference;
+            else {
+                // just concat 
+                jsobj.reference = jsobj.reference.concat(tmp.reference);
+            }
+        }
+    }
+    // return result jsObj
+    return jsobj;
+}
+
 function trans2md(jsObj){
     let title = jsObj.title;
-    let maintype = jsObj.type;
+    let options = jsObj.options;
     let author = jsObj.author; // js array
     let abs = jsObj.abstract; // js obj
     let article = jsObj.article; // js array
@@ -117,9 +197,13 @@ function trans2md(jsObj){
     for(var index in author){
         md_content += `* ${author[index].name}, ${author[index].email}, [website](${author[index].website})\n`;
     }
-    // abstract
-    if(abs.content != "" && abs.content != undefined){
-        md_content += `## Abstract\n\n${abs.content}\n\n`;
+    // abstract (using array)
+    md_content += `## Abstract\n\n`;
+    if(abs.content.length != "" && abs.content != undefined){
+        for(var index in abs.content){
+            md_content += `${abs.content[index]}\n`;
+        }
+        md_content += `\n`; // end 
     }
     md_content += `--- \n\n`;
     // article 
@@ -199,7 +283,11 @@ function trans2latex(jsObj){
     latex_content += "\n\\maketitle\n\n";
 
     // get abstract
-    latex_content += "\n\\begin{abstract}\n" + abs.content + "\n\\end{abstract}\n";
+    latex_content += "\n\\begin{abstract}\n";
+    for(var index in abs.content){
+        latex_content += abs.content[index] + '\n';
+    }
+    latex_content += "\n\\end{abstract}\n";
 
     // append article
     for(var index in article){

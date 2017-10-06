@@ -1,44 +1,137 @@
 {
     "article": [
         {
-            "name": "Merging test(priority 3)",
+            "title": "Title 3",
             "priority": 3,
             "content": [
                 {
-                    "type": "text",
-                    "text": "Testing docogen merging work.",
-                    "figure": "",
-                    "subarticle": [
+                    "name": "List Structure",
+                    "type": "none",
+                    "data": [
+                        { "info": "\tList Structure Example: " }
+                    ]
+                },
+                {
+                    "name": "Merging test(priority 3)",
+                    "type": "list",
+                    "data": [
                         {
-                            "name": "Merging sub.",
-                            "content": [
+                            "name": "List 1",
+                            "subitems": [
                                 {
-                                    "type": "text",
-                                    "text": "None.",
-                                    "figure": ""
+                                    "name":"List 1-1"
+                                },
+                                {
+                                    "name":"List 1-2",
+                                    "subitems": [
+                                        { "name": "List 1-2-1" },
+                                        { "name": "List 1-2-2"
+                                        , "subitems": [ { "name": "List 1-2-2-1" } ] }
+                                    ]
+                                },
+                                {
+                                    "name": "List 1-3"
                                 }
                             ]
+                        },
+                        {
+                            "name": "List 2"
+                        }
+                    ],
+                    "figure": [
+                        {
+                            "path": "",
+                            "align": "",
+                            "size": ""
+                        }
+                    ],
+                    "subarticle": [
+                        {
+                            "content": [
+                                {
+                                    "name": "Why we create Docogen?",
+                                    "type": "text",
+                                    "text": "Generate a beautiful introduction paper with simple command.",
+                                    "data": [
+                                        {
+                                            "info": "Building your document and website together."
+                                        },
+                                        {
+                                            "info": "New feature support. Next-line testing."
+                                        }
+                                    ],
+                                    "figure": [
+                                        {
+                                            "path": "",
+                                            "align": "",
+                                            "size": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+                ,{
+                    "name": "List",
+                    "type": "text",
+                    "text": "List Structure",
+                    "data": [
+                        {
+                            "info": "Listing structure append"
+                        },
+                        {
+                            "info": "New feature support."
                         }
                     ]
                 }
             ]
         },
         {
-            "name": "Merging test(priority -1)",
+            "title": "Title -1",
             "priority": -1,
             "content": [
                 {
+                    "name": "Merging test(priority -1)",
                     "type": "text",
-                    "text": "None.",
-                    "figure": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
+                    "text": "Building your document and website together.",
+                    "data": [
+                        {
+                            "info": "Building your document and website together."
+                        },
+                        {
+                            "info": "New feature support. Next-line testing."
+                        }
+                    ],
+                    "figure": [
+                        {
+                            "path": "",
+                            "align": "",
+                            "size": ""
+                        }
+                    ],
                     "subarticle": [
                         {
-                            "name": "Merging sub.",
                             "content": [
                                 {
+                                    "name": "Why we create Docogen?",
                                     "type": "text",
-                                    "text": "None.",
-                                    "figure": ""
+                                    "text": "Generate a beautiful introduction paper with simple command.",
+                                    "data": [
+                                        {
+                                            "info": "Building your document and website together."
+                                        },
+                                        {
+                                            "info": "New feature support. Next-line testing."
+                                        }
+                                    ],
+                                    "figure": [
+                                        {
+                                            "path": "",
+                                            "align": "",
+                                            "size": ""
+                                        }
+                                    ]
                                 }
                             ]
                         }

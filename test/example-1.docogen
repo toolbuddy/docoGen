@@ -21,21 +21,49 @@
     },
     "article": [
         {
-            "name": "What is Docogen?",
+            "title": "Title 1",
             "priority": 1,
             "content": [
                 {
+                    "name": "What is Docogen?",
                     "type": "text",
-                    "text": "Building your document and website together.",
-                    "figure": "",
+                    "data": [
+                        {
+                            "info": "Building your document and website together."
+                        },
+                        {
+                            "info": "New feature support. Next-line testing."
+                        }
+                    ],
+                    "figure": [
+                        {
+                            "path": "",
+                            "align": "",
+                            "size": ""
+                        }
+                    ],
                     "subarticle": [
                         {
-                            "name": "Why we create Docogen?",
                             "content": [
                                 {
+                                    "name": "Why we create Docogen?",
                                     "type": "text",
                                     "text": "Generate a beautiful introduction paper with simple command.",
-                                    "figure": ""
+                                    "data": [
+                                        {
+                                            "info": "Building your document and website together."
+                                        },
+                                        {
+                                            "info": "New feature support. Next-line testing."
+                                        }
+                                    ],
+                                    "figure": [
+                                        {
+                                            "path": "",
+                                            "align": "",
+                                            "size": ""
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -44,21 +72,45 @@
             ]
         },
         {
-            "name": "What is toolbuddy\\cite{ToolBuddy}?",
+            "title": "Title 1",
             "priority": 2,
             "content": [
                 {
+                    "name": "What is toolbuddy\\cite{ToolBuddy}?",
                     "type": "text",
                     "text": "An group of good programmer that solve the problem!",
                     "figure": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
+                    "data": [
+                        {
+                            "info": "An group of good programmer that solve the problem!"
+                        }
+                    ],
+                    "figure": [
+                        {
+                            "path": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
+                            "align": "center",
+                            "size": ""
+                        }
+                    ],
                     "subarticle": [
                         {
-                            "name": "How to join toolbuddy?",
                             "content": [
                                 {
+                                    "name": "How to join toolbuddy?",
                                     "type": "text",
                                     "text": "Just email to Kevin and pass your github ID and he will find your by himself!",
-                                    "figure": ""
+                                    "data": [
+                                        {
+                                            "info": "Just email to Kevin and pass your github ID and he will find your by himself!"
+                                        }
+                                    ],
+                                    "figure": [
+                                        {
+                                            "path": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
+                                            "align": "center",
+                                            "size": ""
+                                        }
+                                    ]
                                 }
                             ]
                         }

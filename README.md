@@ -5,14 +5,17 @@ A document generation tool within your masterpiece.
    - [x] Convert to pdf
    - [ ] Convert to html
 
+# [Wiki](https://github.com/toolbuddy/docogen/wiki)
+* Contain the latest support and usage.
+
 # Prerequisite
 * Dependencies of `node-latex-pdf`.
 * Using the file extension which named `.docogen`, and just store json format in it.
   * these files treated as configuration dependency to your generated result.
   * More information (Still working on it, see `test/example.docogen` to see current support)
 
-# Usage 
-* Install 
+# Usage
+* Install
 ```bash
 npm install docogen --save
 ```

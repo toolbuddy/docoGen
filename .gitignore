@@ -1,3 +1,4 @@
 node_modules/
 *.aux
 *.log
+package-lock.json

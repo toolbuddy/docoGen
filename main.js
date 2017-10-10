@@ -183,4 +183,22 @@ docogen.merge_docogen = function(src_arr,options){
     return jsobj;
 }
 
+docogen.merge_docogen_ex = function(src_path,options,cb){
+    // passing the src project dir path (do the same thing as merg_docogen)
+    const files = fh.create().paths(src_path).ext('docogen').find((err,files) => {
+        if(err)
+            cb(1,"error");
+        else{
+            // strip all test file in node_modules
+            for(var index in files){
+                if(files[index].indexOf('node_modules') != -1){
+                    files.splice(index,1);
+                }
+            }
+            // and then pass to merge_docogen, return an docogen format json object
+            cb(0,this.merge_docogen(files)); 
+        }
+    });
+}
+
 module.exports = docogen;

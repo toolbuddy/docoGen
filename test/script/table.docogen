@@ -1,0 +1,32 @@
+{
+    "article": [
+        {
+            "title": "Table Demo",
+            "priority": 4,
+            "content": [
+                {
+                    "name": "Table 1",
+                    "type": "table",
+                    "data": [
+                        {
+                            "title": "Name",
+                            "value": [ "Kevin","Eric","Lu","Cyu","Lai" ]
+                        },
+                        {
+                            "title": "Age",
+                            "value": [ "23", "22", "24","52","50" ]
+                        },
+                        {
+                            "title": "Job",
+                            "value": [ "programmer", "student", "engineer", "professor", "soldier" ]
+                        }
+                    ],
+                    "figure": [
+                    ],
+                    "subarticle": [
+                    ]
+                }
+            ]
+        }
+    ]
+}

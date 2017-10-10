@@ -1,0 +1,30 @@
+{
+    "article": [
+        {
+            "title": "Code listing Demo",
+            "priority": 5,
+            "content": [
+                {
+                    "name": "Code listing 1",
+                    "type": "code",
+                    "data": [
+                        {  
+                            "lang": "C",
+                            "caption": "C mini exampe",
+                            "raw": "#include <stdio.h>\n\nint main(){\nreturn 0;}\n"
+                        },
+                        {
+                            "lang": "Python",
+                            "caption": "Python example",
+                            "src": "C:\\Users\\kevin\\Desktop\\workspace\\docogen\\test\\example.py"
+                        }
+                    ],
+                    "figure": [
+                    ],
+                    "subarticle": [
+                    ]
+                }
+            ]
+        }
+    ]
+}

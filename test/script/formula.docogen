@@ -1,0 +1,32 @@
+{
+    "article": [
+        {
+            "title": "Formula Demo",
+            "priority": 5,
+            "content": [
+                {
+                    "name": "Formula 1",
+                    "type": "formula",
+                    "data": [
+                        { 
+                            "info": "Now we will introduce the basic equation usage (inline mode): ",
+                            "inline": "\\(x^2 + y^2 = z^2\\)" 
+                        },
+                        { 
+                            "info": "\nThen we can see the display mode: \n",
+                            "display": "\\[ x^n + y^n = z^n \\]" 
+                        },
+                        { 
+                            "info": "\nAnd about equation tag:\n",
+                            "equation": "E=mc^2" 
+                        }
+                    ],
+                    "figure": [
+                    ],
+                    "subarticle": [
+                    ]
+                }
+            ]
+        }
+    ]
+}

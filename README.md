@@ -1,18 +1,20 @@
 # Docogen
 A document generation tool within your masterpiece.
 * The coverage :
-   - [x] Convert to Latex
+   - [x] Convert to Latex(have more support!)
    - [x] Convert to pdf
    - [ ] Convert to html
 
 # [Wiki](https://github.com/toolbuddy/docogen/wiki)
-* Contain the latest support and usage.
+* Contain the latest support and usage explanation.
+* Also the IDE support documentation!
 
 # Prerequisite
 * Dependencies of `node-latex-pdf`.
 * Using the file extension which named `.docogen`, and just store json format in it.
   * these files treated as configuration dependency to your generated result.
   * More information (Still working on it, see `test/example.docogen` to see current support)
+* Within docogen running, `MikTex` will asked you to install multiple required package with docogen.
 
 # Usage
 * Install

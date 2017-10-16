@@ -1,7 +1,8 @@
 {
     "title": "Docogen Example",
     "options": {
-        "type":"article"
+        "type":"article",
+        "version": "0.0.1"
     },
     "author": [
         {

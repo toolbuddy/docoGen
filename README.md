@@ -1,9 +1,9 @@
 # Docogen
 A document generation tool within your masterpiece.
 * The coverage :
-   - [x] Convert to Latex(have more support!)
-   - [x] Convert to pdf
-   - [ ] Convert to html
+   - [x] Convert to Latex pdf(latest support!)
+   - [x] Convert to Markdown pdf(working)
+   - [ ] Convert to html(working)
 
 # [Wiki](https://github.com/toolbuddy/docogen/wiki)
 * Contain the latest support and usage explanation.
@@ -13,8 +13,9 @@ A document generation tool within your masterpiece.
 * Dependencies of `node-latex-pdf`.
 * Using the file extension which named `.docogen`, and just store json format in it.
   * these files treated as configuration dependency to your generated result.
-  * More information (Still working on it, see `test/example.docogen` to see current support)
+  * More information (Still working on it, see `test/script/` to see current support)
 * Within docogen running, `MikTex` will asked you to install multiple required package with docogen.
+  * It will takes minutes to complete.
 
 # Usage
 * Install
@@ -31,13 +32,28 @@ npm install docogen --save
 const docogen = require('docogen');
 
 // convert docogen to latex (pdf format), with absolute path
-var t1 = docogen.generate_latexpdf( src_path , dest_path , options ,(err,msg)=>{
+docogen.generate_latexpdf( src_path , dest_path , options ,(err,msg)=>{
     console.log(msg);
 });
 
 // convert docogen to markdown (pdf format), with absolute path
-var t2 = docogen.generate_mdpdf( src_path , dest_path , options ,(err,msg)=>{
+docogen.generate_mdpdf( src_path , dest_path , options ,(err,msg)=>{
     console.log(msg);
+});
+
+// merge all docogen and output a json object 
+/* using file list (docogen) as merging source */
+var returnObj = docogen.merge_docogen(file_list,{detail: true});
+
+/* using directory path as merging source */
+docogen.merge_docogen_ex(__dirname,{},(err,docObj)=>{
+    // here comes a merged json format from those docogen files under `__dirname`(e.g. your project directory)
+    console.dir(docObj);
+	var file = 'data.json'
+	 
+	jsfs.writeFile(file, docObj, {spaces: 2},function (err) {
+	  console.error(err)
+	})
 });
 ```
 

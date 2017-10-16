@@ -18,7 +18,8 @@
                         {
                             "path": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
                             "align": "center",
-                            "size": ""
+                            "size": "",
+                            "caption": "ToolBuddy logo"
                         }
                     ],
                     "subarticle": [
@@ -37,7 +38,8 @@
                                         {
                                             "path": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
                                             "align": "center",
-                                            "size": ""
+                                            "size": "",
+                                            "caption": "ToolBuddy logo"
                                         }
                                     ]
                                 }

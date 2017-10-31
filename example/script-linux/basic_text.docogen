@@ -1,0 +1,55 @@
+{
+    "article": [
+        {
+            "title": "Introduction",
+            "priority": 1,
+            "content": [
+                {
+                    "name": "What is Docogen?",
+                    "type": "text",
+                    "data": [
+                        {
+                            "info": "Building your document and website together."
+                        },
+                        {
+                            "info": "New feature support. Next-line testing."
+                        }
+                    ],
+                    "figure": [
+                        {
+                            "path": "",
+                            "align": "",
+                            "size": ""
+                        }
+                    ],
+                    "subarticle": [
+                        {
+                            "title": "Why we create Docogen?",
+                            "content": [
+                                {
+                                    "name": "Why we create Docogen?",
+                                    "type": "text",
+                                    "data": [
+                                        {
+                                            "info": "Building your document and website together."
+                                        },
+                                        {
+                                            "info": "Generate a beautiful introduction paper with simple command."
+                                        }
+                                    ],
+                                    "figure": [
+                                        {
+                                            "path": "",
+                                            "align": "",
+                                            "size": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "docogen-example",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Cyu (https://kevinbird61.github.io/Intro/)",
+  "dependencies": {
+    "docogen": "^0.0.13"
+  }
+}

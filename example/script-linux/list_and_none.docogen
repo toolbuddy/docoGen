@@ -1,0 +1,67 @@
+{
+    "article": [
+        {
+            "title": "Different usage of content",
+            "priority": 3,
+            "content": [
+                {
+                    "name": "List Structure",
+                    "type": "none",
+                    "data": [
+                        { "info": "\tList Structure Example: " }
+                    ]
+                },
+                {
+                    "name": "Demo",
+                    "type": "list",
+                    "data": [
+                        {
+                            "name": "List 1",
+                            "subitems": [
+                                {
+                                    "name":"List 1-1"
+                                },
+                                {
+                                    "name":"List 1-2",
+                                    "subitems": [
+                                        { "name": "List 1-2-1" },
+                                        { "name": "List 1-2-2"
+                                        , "subitems": [ { "name": "List 1-2-2-1" } ] }
+                                    ]
+                                },
+                                {
+                                    "name": "List 1-3"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "List 2"
+                        }
+                    ],
+                    "figure": [
+                        {
+                            "path": "",
+                            "align": "",
+                            "size": ""
+                        }
+                    ],
+                    "subarticle": [
+                    ]
+                }
+                ,{
+                    "name": "List",
+                    "type": "text",
+                    "text": "List Structure",
+                    "data": [
+                        {
+                            "info": "Listing structure append"
+                        },
+                        {
+                            "info": "New feature support."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

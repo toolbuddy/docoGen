@@ -1,0 +1,3 @@
+[submodule "example/script_module"]
+	path = example/script_module
+	url = git://github.com/toolbuddy/docoGen-script-example.git

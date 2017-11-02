@@ -3,7 +3,8 @@ A document generation tool within your masterpiece.
 * The coverage :
    - [x] Convert to Latex pdf(latest support!)
    - [x] Convert to Markdown pdf(working)
-   - [ ] Convert to html(working)
+   - [x] Convert to html(working)
+      - using the module [`docoGen-html-ui`](https://github.com/toolbuddy/docoGen-html-ui)
 
 # [Wiki](https://github.com/toolbuddy/docogen/wiki)
 * Contain the latest support and usage explanation.
@@ -18,6 +19,11 @@ A document generation tool within your masterpiece.
   * It will takes minutes to complete.
 
 # Usage
+* Git clone with submodule
+```bash
+git clone --recursive https://github.com/toolbuddy/docoGen.git
+```
+
 * Install
 ```bash
 npm install docogen --save

@@ -1,4 +1,8 @@
 # Docogen
+[![npm version](https://badge.fury.io/js/docogen.svg)](https://badge.fury.io/js/docogen)
+[![npm downloads](https://img.shields.io/npm/dm/docogen.svg)](https://img.shields.io/npm/dm/docogen.svg)
+[![](https://data.jsdelivr.com/v1/package/npm/docogen/badge)](https://www.jsdelivr.com/package/npm/docogen)
+
 A document generation tool within your masterpiece.
 * The coverage :
    - [x] Convert to Latex pdf(latest support!)

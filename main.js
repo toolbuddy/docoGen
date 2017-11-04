@@ -17,9 +17,11 @@ docogen.generate_latexpdf = function(src,dest,options,cb){
             cb(1,"error");
         else{
             // strip all test file in node_modules
-            for(var index in files){
+            for(var index=0;;index++){
+                if(files[index] == undefined) break;
                 if(files[index].indexOf('node_modules') != -1){
                     files.splice(index,1);
+                    index--;
                 }
             }
             // doing the work without merging

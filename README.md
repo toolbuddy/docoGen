@@ -5,12 +5,12 @@
 
 A document generation tool within your masterpiece.
 * The coverage :
-   - [x] Convert to Latex pdf(latest support!)
-   - [x] Convert to Markdown pdf(working)
-   - [x] Convert to html(working)
-      - using the module [`docoGen-html-ui`](https://github.com/toolbuddy/docoGen-html-ui)
+   - [x] Convert to Latex pdf (latest support, work in progress)
+   - [x] Convert to Markdown pdf (deprecate currently)
+   - [x] Convert to html (latest support, work in progress)
+      - please import package: [`docoGen-webui`](https://github.com/toolbuddy/docoGen-WebUI.git), [(npm package)`docogen-webui`](https://www.npmjs.com/package/docogen-webui)
 
-# [Wiki](https://github.com/toolbuddy/docogen/wiki)
+# [See More in Wiki](https://github.com/toolbuddy/docogen/wiki)
 * Contain the latest support and usage explanation.
 * Also the IDE support documentation!
 

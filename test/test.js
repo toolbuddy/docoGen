@@ -5,6 +5,7 @@ var t = docogen.generate_latexpdf(__dirname,__dirname+"/dest",{ output: "docogen
     console.log(msg);
 });
 
+
 /*
 var t1 = docogen.generate_mdpdf(__dirname,__dirname+"/dest",{ output: "docogen-md" },(err,msg)=>{
     console.log(msg);
@@ -19,4 +20,17 @@ docogen.merge_docogen_ex(__dirname,{},(err,docObj)=>{
 	jsfs.writeFile(file, docObj, {spaces: 2},function (err) {
 	  console.error(err)
 	})
-});*/
+});
+
+// extend version: with promise support 
+docogen.merge_docogen_ex_promise(__dirname,{})
+    .then((result,error) => {
+        // error 
+        if(error) console.log(error)
+        else{
+            // information 
+            console.log(`Message from merge process: ${result.msg}`)
+            // json object of promise 
+            console.dir(result.obj)
+        }
+    })*/

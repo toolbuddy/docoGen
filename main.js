@@ -183,6 +183,65 @@ docogen.merge_docogen = function(src_arr,options){
     return jsobj;
 }
 
+// Promise version of merge_docogen
+docogen.merge_docogen_promise = function(src_arr,options){
+    return new Promise( (resolve,reject) => {
+        // here comes the files list
+        let jsobj = {};
+        console.log("Have " + src_arr.length + " files.");
+        let opt = options || false;
+        if(opt.detail){
+            console.dir(src_arr); // print out all the files name
+        }
+        // Support "article","reference" part merging
+        for(var index in src_arr){
+            var tmp = JSON.parse(fs.readFileSync(src_arr[index],'utf-8'));
+            // ============ set title (only one time) ============
+            if(tmp.title != undefined && jsobj.title == undefined){
+                jsobj.title = tmp.title;
+            }
+            // ============ set options (only one time) ============
+            if(tmp.options != undefined && jsobj.options == undefined){
+                jsobj.options = tmp.options;
+            }
+            // ============ set author (only one time) ============
+            if(tmp.author != undefined && jsobj.author == undefined){
+                jsobj.author = tmp.author;
+            }
+            // ============ set abstract (only one time) ============
+            if(tmp.abstract != undefined && jsobj.abstract == undefined){
+                jsobj.abstract = tmp.abstract;
+            }
+            // ============ merge article ============
+            if(tmp.article != undefined && jsobj.article == undefined){
+                // first time setting
+                jsobj.article = tmp.article;
+            }
+            else if( tmp.article != undefined && jsobj.article.length >= 1 ){
+                // concat then sort , by priority 
+                jsobj.article = jsobj.article.concat(tmp.article);
+                // sort by prority 
+                jsobj.article.sort(function(a,b){
+                    return (a.priority - b.priority);
+                });
+            }
+            // ============ merge reference ============
+            if( tmp.reference != undefined ){
+                if( jsobj.reference == undefined ) jsobj.reference = tmp.reference;
+                else {
+                    // just concat 
+                    jsobj.reference = jsobj.reference.concat(tmp.reference);
+                }
+            }
+        }
+        // return result jsObj
+        return resolve({
+            msg: "success",
+            obj: jsobj
+        });
+    })
+}
+
 docogen.merge_docogen_ex = function(src_path,options,cb){
     // passing the src project dir path (do the same thing as merg_docogen)
     const files = fh.create().paths(src_path).ext('docogen').find((err,files) => {
@@ -199,6 +258,29 @@ docogen.merge_docogen_ex = function(src_path,options,cb){
             cb(0,this.merge_docogen(files)); 
         }
     });
+}
+
+// Promise version of merge_docogen
+docogen.merge_docogen_ex_promise = function(src_path,options){
+    return new Promise((resolve,reject) => {
+        const files = fh.create().paths(src_path).ext('docogen').find((err,files) => {
+            if(err)
+                reject("[Merging Process] Searching files error");
+            else{
+                // strip all test file in node_modules
+                for(var index in files){
+                    if(files[index].indexOf('node_modules') != -1){
+                        files.splice(index,1);
+                    }
+                }
+                // and then pass to merge_docogen, return an docogen format json object
+                resolve({
+                    msg: "[Merging Process] Merging success",
+                    obj: this.merge_docogen(files)
+                }) 
+            }
+        });
+    })
 }
 
 module.exports = docogen;

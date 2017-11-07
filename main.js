@@ -294,4 +294,7 @@ docogen.merge_docogen_ex_promise = function(src_path,options){
     })
 }
 
+// Utils exports
+docogen.utils = utils;
+
 module.exports = docogen;

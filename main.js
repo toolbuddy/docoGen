@@ -9,6 +9,7 @@ const os = require('os');
 
 const latex_engine = require('./lib/docogen-latex-engine');
 const md_engine = require('./lib/docogen-md-engine');
+const utils = require('./lib/docogen-util');
 const docogen = {};
 
 docogen.generate_latexpdf = function(src,dest,options,cb){
@@ -162,10 +163,12 @@ docogen.merge_docogen = function(src_arr,options){
         }
         // ============ merge article ============
         if(tmp.article != undefined && jsobj.article == undefined){
+            tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
             // first time setting
             jsobj.article = tmp.article;
         }
         else if( tmp.article != undefined && jsobj.article.length >= 1 ){
+            tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
             // concat then sort , by priority 
             jsobj.article = jsobj.article.concat(tmp.article);
             // sort by prority 
@@ -198,6 +201,7 @@ docogen.merge_docogen_promise = function(src_arr,options){
         }
         // Support "article","reference" part merging
         for(var index in src_arr){
+            // that file script with working space is src_arr[index] -> here is the key to trans relative to absolutive
             var tmp = JSON.parse(fs.readFileSync(src_arr[index],'utf-8'));
             // ============ set title (only one time) ============
             if(tmp.title != undefined && jsobj.title == undefined){
@@ -217,10 +221,14 @@ docogen.merge_docogen_promise = function(src_arr,options){
             }
             // ============ merge article ============
             if(tmp.article != undefined && jsobj.article == undefined){
+                // find figure & get translate to absolute
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
                 // first time setting
                 jsobj.article = tmp.article;
             }
             else if( tmp.article != undefined && jsobj.article.length >= 1 ){
+                // resolve first
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
                 // concat then sort , by priority 
                 jsobj.article = jsobj.article.concat(tmp.article);
                 // sort by prority 

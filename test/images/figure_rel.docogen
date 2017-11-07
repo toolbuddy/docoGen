@@ -1,18 +1,19 @@
 {
     "article": [
         {
-            "title": "Image Demo",
-            "priority": 6,
+            "title": "Relative Image Demo",
+            "priority": 10,
             "content": [
                 {
-                    "name": "Image/Figure inside the content",
+                    "name": "Image/Figure Relative Test",
                     "type": "figure",
                     "data": [
                         {
-                            "path": "../images/ToolBuddy-logo.png",
+                            "path": "./ToolBuddy-logo.png",
+                            "flag": "rel",
                             "align": "center",
                             "size": "0.5",
-                            "caption": "ToolBuddy logo"
+                            "caption": "Test ToolBuddy logo"
                         }
                     ],
                     "figure": [

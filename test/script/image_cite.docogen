@@ -8,7 +8,6 @@
                     "name": "What is toolbuddy\\cite{ToolBuddy}?",
                     "type": "text",
                     "text": "An group of good programmer that solve the problem!",
-                    "figure": "/home/kevin/workspace/docoGen/test/images/ToolBuddy-logo.png",
                     "data": [
                         {
                             "info": "An group of good programmer that solve the problem!"
@@ -16,10 +15,11 @@
                     ],
                     "figure": [
                         {
-                            "path": "/home/kevin/workspace/docoGen/test/images/ToolBuddy-logo.png",
+                            "path": "../images/ToolBuddy-logo.png",
+                            "flag": "rel",
                             "align": "center",
                             "size": "",
-                            "caption": "ToolBuddy logo"
+                            "caption": "Relative ToolBuddy logo"
                         }
                     ],
                     "subarticle": [
@@ -37,9 +37,17 @@
                                     "figure": [
                                         {
                                             "path": "/home/kevin/workspace/docoGen/test/images/ToolBuddy-logo.png",
+                                            "flag": "abs",
                                             "align": "center",
                                             "size": "",
-                                            "caption": "ToolBuddy logo"
+                                            "caption": "Absolutive ToolBuddy logo"
+                                        },
+                                        {
+                                            "path": "../images/ToolBuddy-logo.png",
+                                            "flag": "rel",
+                                            "align": "center",
+                                            "size": "0.5",
+                                            "caption": "Sub Rel ToolBuddy logo"
                                         }
                                     ]
                                 }

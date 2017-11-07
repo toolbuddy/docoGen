@@ -1,15 +1,23 @@
 {
     "title": "Docogen Example",
     "options": {
-        "type":"article",
+        "type":"proc",
         "version": "0.0.1"
     },
     "author": [
         {
-            "name": "Kevin Cyu \\begin{CJK}{UTF8}((瞿旭民)\\end{CJK} \\cite{Kevin Cyu}",
+            "name": "Kevin Cyu",
             "email": "kevinbird61@gmail.com",
+            "org": "Nation Cheng Kung University",
             "phone": "0912345678",
             "website": "https://github.com/kevinbird61"
+        },
+        {
+            "name": "Yung-Sheng Lu",
+            "email": "yungshenglu1994@gmail.com",
+            "org": "Nation Chiao Tung University",
+            "phone": "0912345678",
+            "website": "https://github.com/yungshenglu"
         }
     ],
     "abstract":{

@@ -9,7 +9,7 @@
                     "type": "figure",
                     "data": [
                         {
-                            "path": "C:/Users/kevin/Desktop/workspace/docogen/test/images/ToolBuddy-logo.png",
+                            "path": "/home/kevin/workspace/docoGen/test/images/ToolBuddy-logo.png",
                             "align": "center",
                             "size": "0.5",
                             "caption": "ToolBuddy logo"

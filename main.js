@@ -7,7 +7,8 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 
-const engine = require('./lib/docogen-engine');
+const latex_engine = require('./lib/docogen-latex-engine');
+const md_engine = require('./lib/docogen-md-engine');
 const docogen = {};
 
 docogen.generate_latexpdf = function(src,dest,options,cb){
@@ -37,7 +38,7 @@ docogen.generate_latexpdf = function(src,dest,options,cb){
                 }
                 // using defined output filename or not 
                 let output = `${options.output}.tex` || `${rs.generate(5)}-${fname}.tex`;
-                fs.writeFileSync(`${os.tmpdir()}/${output}`,engine.trans2latex(JSON.parse(fs.readFileSync(files[0],'utf-8'))));
+                fs.writeFileSync(`${os.tmpdir()}/${output}`,latex_engine.trans2latex(JSON.parse(fs.readFileSync(files[0],'utf-8'))));
                 // convert to latex pdf 
                 latex(`${os.tmpdir()}/${output}`,dest,(err,pdfPath) => {
                     if(err)
@@ -51,7 +52,7 @@ docogen.generate_latexpdf = function(src,dest,options,cb){
                 // using defined output filename or not 
                 let output = `${options.output}.tex` || `${rs.generate(5)}-merginglatex.tex`;
                 // merging
-                fs.writeFileSync(`${os.tmpdir()}/${output}`,engine.trans2latex(this.merge_docogen(files)));
+                fs.writeFileSync(`${os.tmpdir()}/${output}`,latex_engine.trans2latex(this.merge_docogen(files)));
                 // convert to latex pdf 
                 latex(`${os.tmpdir()}/${output}`,dest,(err,pdfPath) => {
                     if(err)
@@ -88,7 +89,7 @@ docogen.generate_mdpdf = function(src,dest,options,cb){
                 }
                 // using defined output filename or not 
                 let output = `${options.output}.pdf` || `${rs.generate(5)}-${fname}.pdf`;
-                fs.writeFileSync(os.tmpdir()+'/'+output+'.md',engine.trans2md(JSON.parse(fs.readFileSync(files[0],'utf-8'))));
+                fs.writeFileSync(os.tmpdir()+'/'+output+'.md',md_engine.trans2md(JSON.parse(fs.readFileSync(files[0],'utf-8'))));
                 let opt = {
                     source: os.tmpdir()+'/'+output+'.md',
                     destination: path.join(dest,output),
@@ -110,7 +111,7 @@ docogen.generate_mdpdf = function(src,dest,options,cb){
                 // multiple docogen files merging
                 // using defined output filename or not 
                 let output = `${options.output}.pdf` || `${rs.generate(5)}-mergingmd.pdf`;
-                fs.writeFileSync(os.tmpdir()+'/'+output+'.md',engine.trans2md(this.merge_docogen(files)));
+                fs.writeFileSync(os.tmpdir()+'/'+output+'.md',md_engine.trans2md(this.merge_docogen(files)));
                 let opt = {
                     source: os.tmpdir()+'/'+output+'.md',
                     destination: path.join(dest,output),

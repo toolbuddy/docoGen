@@ -21,17 +21,19 @@
   },
   "dependencies": {
     "filehound": "^1.16.2",
-    "fs-extra": "~4.0.2",
-    "node-latex-pdf": "~0.0.2",
-    "mdpdf": "~1.5.1",
-    "randomstring": "~1.1.5"
+    "fs-extra": "^4.0.2",
+    "node-latex-pdf": "^0.0.2",
+    "mdpdf": "^1.5.1",
+    "randomstring": "^1.1.5",
+    "markdown-to-ast": "^5.0.0"
   },
   "homepage": "https://github.com/toolbuddy/docogen#readme",
   "devDependencies": {
     "filehound": "^1.16.2",
-    "fs-extra": "~4.0.2",
-    "node-latex-pdf": "~0.0.2",
-    "mdpdf": "~1.5.1",
-    "randomstring": "~1.1.5"
+    "fs-extra": "^4.0.2",
+    "node-latex-pdf": "^0.0.2",
+    "mdpdf": "^1.5.1",
+    "randomstring": "~1.1.5",
+    "markdown-to-ast": "^5.0.0"
   }
 }

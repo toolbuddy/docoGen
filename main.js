@@ -297,4 +297,7 @@ docogen.merge_docogen_ex_promise = function(src_path,options){
 // Utils exports
 docogen.utils = utils;
 
+// Export for markdown engine
+docogen.md2docogen = md_engine.md2docogen;
+
 module.exports = docogen;

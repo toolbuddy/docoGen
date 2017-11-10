@@ -1,17 +1,5 @@
 var docogen = require('../main');
-/* const jsfs = require('jsonfile'); */
-
-var t = docogen.generate_latexpdf(__dirname,__dirname+"/dest",{ output: "docogen-latex" },(err,msg)=>{
-    console.log(msg);
-});
-
-// For utils module usage, export to another docoGen module to use
-docogen.utils.strip_latex_format("\\[ x^n + y^n = z^n \\]","\\[","\\]");
-
-/*
-var t1 = docogen.generate_mdpdf(__dirname,__dirname+"/dest",{ output: "docogen-md" },(err,msg)=>{
-    console.log(msg);
-});
+var jsfs = require('jsonfile');
 
 // extend 
 docogen.merge_docogen_ex(__dirname,{},(err,docObj)=>{
@@ -35,4 +23,4 @@ docogen.merge_docogen_ex_promise(__dirname,{})
             // json object of promise 
             console.dir(result.obj)
         }
-    })*/
+    })

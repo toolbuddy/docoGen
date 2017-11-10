@@ -1,7 +1,7 @@
 {
     "title": "Docogen Example",
     "options": {
-        "type":"proc",
+        "type":"article",
         "version": "0.0.1"
     },
     "author": [

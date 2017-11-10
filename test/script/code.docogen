@@ -16,7 +16,7 @@
                         {
                             "lang": "Python",
                             "caption": "Python example",
-                            "src": "/home/kevin/workspace/docoGen/test/example.py"
+                            "src": "/home/kevin/workspace/docoGen/test/code/example.py"
                         }
                     ],
                     "figure": [

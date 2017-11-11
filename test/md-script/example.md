@@ -27,6 +27,125 @@
     - sentence 3
 
 # article
+- article
+    - title: Text format demo
+    - priority: -1
+    - content
+        - name: None type demo
+        - type: none
+        - data
+            - sentence 1
+            - sentence 2
+    - content
+        - name: Text type demo
+        - type: text
+        - data
+            - sentence 1
+            - sentence 2
+- article
+    - title: List format demo
+    - priority: 0
+    - content
+        - name: list type demo
+        - type: list
+        - data
+            - list 1
+            - list 2
+                - list 2-1
+                    - list 2-1-2
+                - list 2-2
+            - list 3
+            - list 4
+- article
+    - title: Table format demo
+    - priority: 1
+    - content
+        - name: table type demo
+        - type: table
+        - data
+            - User Name
+                - Kevin
+                - Lu
+                - Eric
+            - Age
+                - 20
+                - 22
+                - 31
+            - Job
+                - Student
+                - Engineer
+                - Programmer
+- article 
+    - title: Formula format demo
+    - priority: 2
+    - content
+        - name: formula type demo
+        - type: formula
+        - data
+            - block
+                - info: A simple equation!
+                - inline: \(x^2 + y^2 = z^2)\
+                - display: \[ x^n + y^n = z^n \]
+                - equation: E=mc^2
+            - block
+                - info: A simple equation!
+                - inline: \(x^2 + y^2 = z^2)\
+- article
+    - title: Code format demo
+    - priority: 3
+    - content
+        - name: code type demo
+        - type: code
+        - data
+            - block
+                - lang: C
+                - caption: Simple Demo C program
+                - raw: #include<stdio.h>\n\nint main(){\n\treturn 0;\n}\n
+            - block
+                - lang: Python
+                - caption: Simple Demo Python program
+                - src: ../code/example.py
+- article
+    - title: Figure format demo
+    - priority: 4
+    - content
+        - name: figure type demo
+        - type: figure
+        - data
+            - block
+                - path: absolute path
+                - flag: abs/rel
+                - align: center
+                - size: 0.5
+                - caption: caption of image
+- article
+    - title: Restful API Support
+    - priority: 5
+    - content
+        - name: restful-api type demo
+        - type: web-restful-api
+        - data
+            - block
+                - method: post
+                - usage: [Online] Register New User
+                - url: https://kevin.imslab.org/register
+                - description: Enroll new user to local service
+                - field
+                    - param
+                        - name: username
+                        - type: string
+                    - param
+                        - name: username
+                        - type: string    
+                - error
+                    - duplicated
+                    - internal error
+                - success 
+                    - passed
+                    - noped
+
+    
+
 
 # reference
 - ref

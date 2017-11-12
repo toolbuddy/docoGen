@@ -143,9 +143,65 @@
                 - success 
                     - passed
                     - noped
-
-    
-
+- article
+    - title: Outside Figure + SubArticle Test
+    - priority: 6
+    - content
+        - name: Text Default
+        - type: text
+        - data
+            - sentence 3
+            - sentence 4
+    - figure
+        - block
+            - path: absolute path
+            - flag: abs/rel
+            - align: center
+            - size: 0.5
+            - caption: caption of image
+        - block
+            - path: absolute path
+            - flag: abs/rel
+            - align: center
+            - size: 0.5
+            - caption: caption of image
+    - subarticle
+        - article
+            - title: Nested
+            - content
+                - name: Nested Text
+                - type: text
+                - data
+                    - sentence nested 1
+                    - sentence nested 2
+            - content
+                - name: Nested None
+                - type: none
+                - data
+                    - sentence nested 3
+                    - sentence nested 4
+            - figure
+                - block
+                    - path: absolute path
+                    - flag: abs/rel
+                    - align: center
+                    - size: 0.5
+                    - caption: caption of image
+                - block
+                    - path: absolute path
+                    - flag: abs/rel
+                    - align: center
+                    - size: 0.5
+                    - caption: caption of image
+            - subarticle
+                - article
+                    - title: Nested Nested
+                    - content
+                        - name: Nested Nested Text
+                        - type: text
+                        - data
+                            - sentence nested nested 1
+                            - sentence nested nested 2
 
 # reference
 - ref

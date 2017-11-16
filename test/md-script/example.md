@@ -28,40 +28,41 @@
 
 # article
 - article
-    - title: Text format demo
-    - priority: -1
+    - title:Text format demo
+    - priority:-1
     - content
-        - name: None type demo
-        - type: none
+        - name:None type demo
+        - type:none
         - data
             - sentence 1
             - sentence 2
     - content
-        - name: Text type demo
-        - type: text
+        - name:Text type demo
+        - type:text
         - data
             - sentence 1
             - sentence 2
 - article
-    - title: List format demo
-    - priority: 0
+    - title:List format demo
+    - priority:0
     - content
-        - name: list type demo
-        - type: list
+        - name:list type demo
+        - type:list
         - data
             - list 1
             - list 2
                 - list 2-1
+                    - list 2-1-1
                     - list 2-1-2
                 - list 2-2
             - list 3
             - list 4
 - article
-    - title: Table format demo
-    - priority: 1
+    - title:Table format demo
+    - priority:1
     - content
-        - name: table type demo
-        - type: table
+        - name:table type demo
+        - type:table
         - data
             - User Name
                 - Kevin
@@ -76,67 +77,67 @@
                 - Engineer
                 - Programmer
 - article 
-    - title: Formula format demo
-    - priority: 2
+    - title:Formula format demo
+    - priority:2
     - content
-        - name: formula type demo
-        - type: formula
+        - name:formula type demo
+        - type:formula
         - data
             - block
-                - info: A simple equation!
-                - inline: \(x^2 + y^2 = z^2)\
-                - display: \[ x^n + y^n = z^n \]
-                - equation: E=mc^2
+                - info:A simple equation!
             - block
-                - info: A simple equation!
-                - inline: \(x^2 + y^2 = z^2)\
+                - inline:\(x^2 + y^2 = z^2\)
+            - block
+                - display:\[x^n + y^n = z^n\]
+            - block
+                - equation:E=mc^2
 - article
-    - title: Code format demo
-    - priority: 3
+    - title:Code format demo
+    - priority:3
     - content
-        - name: code type demo
-        - type: code
+        - name:code type demo
+        - type:code
         - data
             - block
-                - lang: C
-                - caption: Simple Demo C program
-                - raw: #include<stdio.h>\n\nint main(){\n\treturn 0;\n}\n
+                - lang:C
+                - caption:Simple Demo C program
+                - raw:#include<stdio.h>\n\nint main(){\n\treturn 0;\n}\n
             - block
-                - lang: Python
-                - caption: Simple Demo Python program
-                - src: ../code/example.py
+                - lang:Python
+                - caption:Simple Demo Python program
+                - src:/home/kevin/workspace/docoGen/test/code/example.py
 - article
-    - title: Figure format demo
-    - priority: 4
+    - title:Figure format demo
+    - priority:4
     - content
-        - name: figure type demo
-        - type: figure
+        - name:figure type demo
+        - type:figure
         - data
             - block
-                - path: absolute path
-                - flag: abs/rel
-                - align: center
-                - size: 0.5
-                - caption: caption of image
+                - path:../images/ToolBuddy-logo.png
+                - flag:rel
+                - align:center
+                - size:0.5
+                - caption:toolbuddy
 - article
-    - title: Restful API Support
-    - priority: 5
+    - title:Restful API Support
+    - priority:5
     - content
-        - name: restful-api type demo
-        - type: web-restful-api
+        - name:restful-api type demo
+        - type:web-restful-api
         - data
             - block
-                - method: post
-                - usage: [Online] Register New User
-                - url: https://kevin.imslab.org/register
-                - description: Enroll new user to local service
+                - method:post
+                - usage:[Online] Register New User
+                - url:https://kevin.imslab.org/register
+                - description:Enroll new user to local service
                 - field
                     - param
-                        - name: username
-                        - type: string
+                        - name:username
+                        - type:string
                     - param
-                        - name: username
-                        - type: string    
+                        - name:username
+                        - type:string    
                 - error
                     - duplicated
                     - internal error
@@ -144,66 +145,66 @@
                     - passed
                     - noped
 - article
-    - title: Outside Figure + SubArticle Test
-    - priority: 6
+    - title:Outside Figure + SubArticle Test
+    - priority:6
     - content
-        - name: Text Default
-        - type: text
+        - name:Text Default
+        - type:text
         - data
             - sentence 3
             - sentence 4
-    - figure
-        - block
-            - path: absolute path
-            - flag: abs/rel
-            - align: center
-            - size: 0.5
-            - caption: caption of image
-        - block
-            - path: absolute path
-            - flag: abs/rel
-            - align: center
-            - size: 0.5
-            - caption: caption of image
-    - subarticle
-        - article
-            - title: Nested
-            - content
-                - name: Nested Text
-                - type: text
-                - data
-                    - sentence nested 1
-                    - sentence nested 2
-            - content
-                - name: Nested None
-                - type: none
-                - data
-                    - sentence nested 3
-                    - sentence nested 4
-            - figure
-                - block
-                    - path: absolute path
-                    - flag: abs/rel
-                    - align: center
-                    - size: 0.5
-                    - caption: caption of image
-                - block
-                    - path: absolute path
-                    - flag: abs/rel
-                    - align: center
-                    - size: 0.5
-                    - caption: caption of image
-            - subarticle
-                - article
-                    - title: Nested Nested
-                    - content
-                        - name: Nested Nested Text
-                        - type: text
-                        - data
-                            - sentence nested nested 1
-                            - sentence nested nested 2
+        - figure
+            - block
+                - path:../images/ToolBuddy-logo.png
+                - flag:rel
+                - align:center
+                - size:0.5
+                - caption:caption of image
+            - block
+                - path:../images/ToolBuddy-logo.png
+                - flag:rel
+                - align:center
+                - size:0.5
+                - caption:caption of image
+        - subarticle
+            - article
+                - title:Nested
+                - content
+                    - name:Nested Text
+                    - type:text
+                    - data
+                        - sentence nested 1
+                        - sentence nested 2
+                - content
+                    - name:Nested None
+                    - type:none
+                    - data
+                        - sentence nested 3
+                        - sentence nested 4
+                    - figure
+                        - block
+                            - path:../images/ToolBuddy-logo.png
+                            - flag:rel
+                            - align:center
+                            - size:0.5
+                            - caption:caption of image
+                        - block
+                            - path:../images/ToolBuddy-logo.png
+                            - flag:rel
+                            - align:center
+                            - size:0.5
+                            - caption:caption of image
+                    - subarticle
+                        - article
+                            - title:Nested Nested
+                            - content
+                                - name:Nested Nested Text
+                                - type:text
+                                - data
+                                    - sentence nested nested 1
+                                    - sentence nested nested 2
 
 # reference
 - ref
-    - name: kevin
-    - content: NCKU student
+    - name:kevin
+    - content:NCKU student

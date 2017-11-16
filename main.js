@@ -66,6 +66,21 @@ docogen.generate_latexpdf = function(src,dest,options,cb){
     });
 }
 
+docogen.generate_latexpdf_raw = function(md_path,options,cb){
+    let output = `${options.output}.tex` || `${rs.generate(5)}-${fname}.tex`,
+        dest = `${options.dest}` || __dirname;
+    let rawjsonObj = this.md2docogen(md_path);
+    rawjsonObj = this.resolve_rel(rawjsonObj,md_path);
+    fs.writeFileSync(`${os.tmpdir()}/${output}`,latex_engine.trans2latex(rawjsonObj))
+    // convert to latex pdf
+    latex(`${os.tmpdir}/${output}`,dest,(err,pdfPath) => {
+        if(err)
+        cb(1,"latex error");
+    else
+        cb(0,`[Docogen - Merging process from rawjsonObj] Job done. JSONObj successfully convert into latex pdf format in ${pdfPath}`);
+    })
+}
+
 docogen.generate_mdpdf = function(src,dest,options,cb){
     // find our file extension
     const files = fh.create().paths(src).ext('docogen').find((err,files) => {
@@ -163,12 +178,34 @@ docogen.merge_docogen = function(src_arr,options){
         }
         // ============ merge article ============
         if(tmp.article != undefined && jsobj.article == undefined){
-            tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
+            // Resolving the path
+            if(os.type() == "Windows_NT"){
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
+            }
+            else if(os.type() == "Linux"){
+                // Linux
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+            }
+            else{
+                // FIXME: Other platform, currently use linux 
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+            }
             // first time setting
             jsobj.article = tmp.article;
         }
         else if( tmp.article != undefined && jsobj.article.length >= 1 ){
-            tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
+            // Resolving the path
+            if(os.type() == "Windows_NT"){
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
+            }
+            else if(os.type() == "Linux"){
+                // Linux
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+            }
+            else{
+                // FIXME: Other platform, currently use linux 
+                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+            }
             // concat then sort , by priority 
             jsobj.article = jsobj.article.concat(tmp.article);
             // sort by prority 
@@ -222,13 +259,35 @@ docogen.merge_docogen_promise = function(src_arr,options){
             // ============ merge article ============
             if(tmp.article != undefined && jsobj.article == undefined){
                 // find figure & get translate to absolute
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
+                // Resolving the path
+                if(os.type() == "Windows_NT"){
+                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
+                }
+                else if(os.type() == "Linux"){
+                    // Linux
+                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+                }
+                else{
+                    // FIXME: Other platform, currently use linux 
+                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+                }
                 // first time setting
                 jsobj.article = tmp.article;
             }
             else if( tmp.article != undefined && jsobj.article.length >= 1 ){
                 // resolve first
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));
+                // Resolving the path
+                if(os.type() == "Windows_NT"){
+                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
+                }
+                else if(os.type() == "Linux"){
+                    // Linux
+                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+                }
+                else{
+                    // FIXME: Other platform, currently use linux 
+                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
+                }
                 // concat then sort , by priority 
                 jsobj.article = jsobj.article.concat(tmp.article);
                 // sort by prority 
@@ -251,6 +310,23 @@ docogen.merge_docogen_promise = function(src_arr,options){
             obj: jsobj
         });
     })
+}
+
+docogen.resolve_rel = function(jsObj,dirname){
+    // resolving the path from rel to abs
+    if(os.type() == "Windows_NT"){
+        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
+    }
+    else if(os.type() == "Linux"){
+        // Linux
+        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));                
+    }
+    else{
+        // FIXME: Other platform, currently use linux 
+        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));              
+    }
+
+    return jsObj
 }
 
 docogen.merge_docogen_ex = function(src_path,options,cb){

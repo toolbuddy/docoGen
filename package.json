@@ -1,6 +1,6 @@
 {
   "name": "docogen",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build your website, doc, and paper one time.",
   "main": "main.js",
   "scripts": {

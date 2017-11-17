@@ -342,7 +342,7 @@ docogen.merge_docogen_ex = function(src_path,options,cb){
                 }
             }
             // and then pass to merge_docogen, return an docogen format json object
-            cb(0,this.merge_docogen(files)); 
+            cb(0,this.merge_docogen(files,options)); 
         }
     });
 }
@@ -363,7 +363,7 @@ docogen.merge_docogen_ex_promise = function(src_path,options){
                 // and then pass to merge_docogen, return an docogen format json object
                 resolve({
                     msg: "[Merging Process] Merging success",
-                    obj: this.merge_docogen(files)
+                    obj: this.merge_docogen(files,options)
                 }) 
             }
         });

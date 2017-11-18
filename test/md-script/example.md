@@ -203,6 +203,17 @@
                                 - data
                                     - sentence nested nested 1
                                     - sentence nested nested 2
+                        - article
+                            - title:Nested Nested Code Block
+                            - content
+                                - name:Code Block
+                                - type:code
+                                - data
+                                    - block
+                                        - lang:C
+                                        - flag:rel
+                                        - caption:C example
+                                        - src:../code/lcgrand.c
 
 # reference
 - ref

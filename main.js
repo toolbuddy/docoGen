@@ -179,33 +179,13 @@ docogen.merge_docogen = function(src_arr,options){
         // ============ merge article ============
         if(tmp.article != undefined && jsobj.article == undefined){
             // Resolving the path
-            if(os.type() == "Windows_NT"){
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
-            }
-            else if(os.type() == "Linux"){
-                // Linux
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-            }
-            else{
-                // FIXME: Other platform, currently use linux 
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-            }
+            tmp = this.resolve_rel(tmp,src_arr[index])
             // first time setting
             jsobj.article = tmp.article;
         }
         else if( tmp.article != undefined && jsobj.article.length >= 1 ){
             // Resolving the path
-            if(os.type() == "Windows_NT"){
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
-            }
-            else if(os.type() == "Linux"){
-                // Linux
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-            }
-            else{
-                // FIXME: Other platform, currently use linux 
-                tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-            }
+            tmp = this.resolve_rel(tmp,src_arr[index])
             // concat then sort , by priority 
             jsobj.article = jsobj.article.concat(tmp.article);
             // sort by prority 
@@ -260,34 +240,14 @@ docogen.merge_docogen_promise = function(src_arr,options){
             if(tmp.article != undefined && jsobj.article == undefined){
                 // find figure & get translate to absolute
                 // Resolving the path
-                if(os.type() == "Windows_NT"){
-                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
-                }
-                else if(os.type() == "Linux"){
-                    // Linux
-                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-                }
-                else{
-                    // FIXME: Other platform, currently use linux 
-                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-                }
+                tmp = this.resolve_rel(tmp,src_arr[index])
                 // first time setting
                 jsobj.article = tmp.article;
             }
             else if( tmp.article != undefined && jsobj.article.length >= 1 ){
                 // resolve first
                 // Resolving the path
-                if(os.type() == "Windows_NT"){
-                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('\\')));                
-                }
-                else if(os.type() == "Linux"){
-                    // Linux
-                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-                }
-                else{
-                    // FIXME: Other platform, currently use linux 
-                    tmp.article = utils.resolve_figure(tmp.article,src_arr[index].substring(0,src_arr[index].lastIndexOf('/')));                
-                }
+                tmp = this.resolve_rel(tmp,src_arr[index])
                 // concat then sort , by priority 
                 jsobj.article = jsobj.article.concat(tmp.article);
                 // sort by prority 
@@ -316,14 +276,17 @@ docogen.resolve_rel = function(jsObj,dirname){
     // resolving the path from rel to abs
     if(os.type() == "Windows_NT"){
         jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
+        jsObj.article = utils.resolve_code(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
     }
     else if(os.type() == "Linux"){
         // Linux
         jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));                
+        jsObj.article = utils.resolve_code(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));
     }
     else{
         // FIXME: Other platform, currently use linux 
-        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));              
+        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));
+        jsObj.article = utils.resolve_code(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));              
     }
 
     return jsObj

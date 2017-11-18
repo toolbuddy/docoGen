@@ -15,8 +15,15 @@
                         },
                         {
                             "lang": "Python",
+                            "flag": "rel",
                             "caption": "Python example",
-                            "src": "/home/kevin/workspace/docoGen/test/code/example.py"
+                            "src": "../code/example.py"
+                        },
+                        {
+                            "lang": "C",
+                            "flag": "rel",
+                            "caption": "C example",
+                            "src": "../code/lcgrand.c"
                         }
                     ],
                     "figure": [

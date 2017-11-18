@@ -36,8 +36,8 @@
                                     ],
                                     "figure": [
                                         {
-                                            "path": "/home/kevin/workspace/docoGen/test/images/ToolBuddy-logo.png",
-                                            "flag": "abs",
+                                            "path": "../images/ToolBuddy-logo.png",
+                                            "flag": "rel",
                                             "align": "center",
                                             "size": "",
                                             "caption": "Absolutive ToolBuddy logo"

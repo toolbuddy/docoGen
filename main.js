@@ -9,7 +9,9 @@ const os = require('os');
 
 const latex_engine = require('./lib/docogen-latex-engine');
 const md_engine = require('./lib/docogen-md-engine');
+const gviz = require('./lib/docogen-graphviz');
 const utils = require('./lib/docogen-util');
+
 const docogen = {};
 
 docogen.generate_latexpdf = function(src,dest,options,cb){
@@ -275,18 +277,15 @@ docogen.merge_docogen_promise = function(src_arr,options){
 docogen.resolve_rel = function(jsObj,dirname){
     // resolving the path from rel to abs
     if(os.type() == "Windows_NT"){
-        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
-        jsObj.article = utils.resolve_code(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
+        jsObj.article = utils.resolve(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
     }
     else if(os.type() == "Linux"){
         // Linux
-        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));                
-        jsObj.article = utils.resolve_code(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));
+        jsObj.article = utils.resolve(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));     
     }
     else{
         // FIXME: Other platform, currently use linux 
-        jsObj.article = utils.resolve_figure(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));
-        jsObj.article = utils.resolve_code(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));              
+        jsObj.article = utils.resolve(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));          
     }
 
     return jsObj
@@ -335,6 +334,9 @@ docogen.merge_docogen_ex_promise = function(src_path,options){
 
 // Utils exports
 docogen.utils = utils;
+
+// Graphviz exports
+docogen.gviz = gviz;
 
 // Export for markdown engine
 docogen.md2docogen = md_engine.md2docogen;

@@ -1,0 +1,33 @@
+{
+    "article": [
+        {
+            "title": "Graphviz Demo",
+            "priority": 13,
+            "content": [
+                {
+                    "name": "Dot Demo",
+                    "type": "graphviz",
+                    "data": [
+                        {  
+                            "align": "center",
+                            "size": 0.5,
+                            "caption": "Simple digraph generated from raw",
+                            "raw": "digraph G {\n\tone -> two;\n\tone -> three;\n\tone -> four;\n}\n"
+                        },
+                        {
+                            "align": "center",
+                            "size": 0.5,
+                            "flag": "rel",
+                            "caption": "Simple digraph generated from file",
+                            "src": "../dotfile/graphviz.dot"
+                        }
+                    ],
+                    "figure": [
+                    ],
+                    "subarticle": [
+                    ]
+                }
+            ]
+        }
+    ]
+}

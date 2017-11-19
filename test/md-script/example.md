@@ -120,6 +120,24 @@
                 - size:0.5
                 - caption:toolbuddy
 - article
+    - title:Graphviz format demo
+    - priority:4
+    - content
+        - name:Graphviz
+        - type:graphviz
+        - data
+            - block
+                - src:../dotfile/graphviz.dot
+                - flag:rel
+                - align:center
+                - size:0.5
+                - caption:graphviz src demo
+            - block
+                - raw:digraph G {one -> two;one -> three;one -> four;}
+                - align:center
+                - size:0.5
+                - caption:graphviz raw demo
+- article
     - title:Restful API Support
     - priority:5
     - content

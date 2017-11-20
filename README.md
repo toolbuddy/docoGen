@@ -58,5 +58,10 @@ docogen.generate_latexpdf( src_path , dest_path , options ,(err,msg)=>{
 
 * See all current support method in `test/`! Enjoy!
 
+# Join us
+[![Slack Status](https://img.shields.io/badge/slack-active-pink.svg)](https://docogen-team.slack.com)
+
+
 # Author
 * [Kevin Cyu](https://kevinbird61.github.io/Intro/), kevinbird61@gmail.com
+

@@ -105,7 +105,8 @@
             - block
                 - lang:Python
                 - caption:Simple Demo Python program
-                - src:/home/kevin/workspace/docoGen/test/code/example.py
+                - flag:rel
+                - src:../code/example.py
 - article
     - title:Figure format demo
     - priority:4

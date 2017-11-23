@@ -71,6 +71,8 @@ docogen.generate_latexpdf = function(src,dest,options,cb){
 docogen.generate_latexpdf_raw = function(md_path,options,cb){
     let output = `${options.output}.tex` || `${rs.generate(5)}-${fname}.tex`,
         dest = `${options.dest}` || __dirname;
+    // Standardlize the path with \ or /
+    md_path = this.path_standardlize(md_path)
     let rawjsonObj = this.md2docogen(md_path);
     rawjsonObj = this.resolve_rel(rawjsonObj,md_path);
     fs.writeFileSync(`${os.tmpdir()}/${output}`,latex_engine.trans2latex(rawjsonObj))
@@ -180,12 +182,14 @@ docogen.merge_docogen = function(src_arr,options){
         }
         // ============ merge article ============
         if(tmp.article != undefined && jsobj.article == undefined){
+            src_arr[index] = this.path_standardlize(src_arr[index])
             // Resolving the path
             tmp = this.resolve_rel(tmp,src_arr[index])
             // first time setting
             jsobj.article = tmp.article;
         }
         else if( tmp.article != undefined && jsobj.article.length >= 1 ){
+            src_arr[index] = this.path_standardlize(src_arr[index])
             // Resolving the path
             tmp = this.resolve_rel(tmp,src_arr[index])
             // concat then sort , by priority 
@@ -241,13 +245,15 @@ docogen.merge_docogen_promise = function(src_arr,options){
             // ============ merge article ============
             if(tmp.article != undefined && jsobj.article == undefined){
                 // find figure & get translate to absolute
+                src_arr[index] = this.path_standardlize(src_arr[index])
                 // Resolving the path
                 tmp = this.resolve_rel(tmp,src_arr[index])
                 // first time setting
                 jsobj.article = tmp.article;
             }
             else if( tmp.article != undefined && jsobj.article.length >= 1 ){
-                // resolve first
+                // standardize
+                src_arr[index] = this.path_standardlize(src_arr[index])
                 // Resolving the path
                 tmp = this.resolve_rel(tmp,src_arr[index])
                 // concat then sort , by priority 
@@ -275,6 +281,7 @@ docogen.merge_docogen_promise = function(src_arr,options){
 }
 
 docogen.resolve_rel = function(jsObj,dirname){
+    console.log("Resolving Raw path:" + dirname)
     // resolving the path from rel to abs
     if(os.type() == "Windows_NT"){
         jsObj.article = utils.resolve(jsObj.article,dirname.substring(0,dirname.lastIndexOf('\\')));
@@ -287,8 +294,24 @@ docogen.resolve_rel = function(jsObj,dirname){
         // FIXME: Other platform, currently use linux 
         jsObj.article = utils.resolve(jsObj.article,dirname.substring(0,dirname.lastIndexOf('/')));          
     }
-
     return jsObj
+}
+
+// 
+docogen.path_standardlize = function(dirname){
+    // resolving the path from rel to abs
+    if(os.type() == "Windows_NT"){
+        dirname = dirname.replace(/\//g,'\\')
+    }
+    else if(os.type() == "Linux"){
+        // Linux (if you use Window path, and then change into Linux form)
+        dirname = dirname.replace(/\\/g,'/')
+    }
+    else{
+        // FIXME: Other platform, currently use linux 
+        dirname = dirname.replace(/\\/g,'/')       
+    }
+    return dirname
 }
 
 docogen.merge_docogen_ex = function(src_path,options,cb){

@@ -1,3 +1,5 @@
 node_modules/
 *.aux
 *.log
+
+test/test.json

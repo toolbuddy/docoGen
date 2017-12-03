@@ -42,6 +42,17 @@ git clone --recursive https://github.com/toolbuddy/docoGen.git
 npm install docogen --save
 ```
 
+* Install dependencies (after install docoGen package)
+   * The install scripts are under docoGen package.
+   * Window user
+   ```
+   $ ./node_modules/docogen/install_dep.bat
+   ```
+   * Linux User
+   ```
+   $ bash ./node_modules/docogen/install_dep.sh
+   ```
+
 * Example: Generate LaTeX pdf from docoGen script
   * `src_path`: the source path to your project root, and it will get all docogen files.
   * `dest_path`: the destination directory to store those generated pdf.

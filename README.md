@@ -4,6 +4,9 @@
 [![](https://data.jsdelivr.com/v1/package/npm/docogen/badge)](https://www.jsdelivr.com/package/npm/docogen)
 
 A document generation tool within your masterpiece.
+
+![docoGen](https://i.imgur.com/fkx11KR.png)
+
 * The coverage :
    - [x] Convert to Latex pdf (latest support, work in progress)
    - [x] Convert to Markdown pdf (deprecate currently)

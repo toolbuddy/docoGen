@@ -5,7 +5,7 @@
 
 A document generation tool within your masterpiece.
 
-![docoGen](https://i.imgur.com/fkx11KR.png)
+![docoGen](https://i.imgur.com/ZN1WU8s.png)
 
 * The coverage :
    - [x] Convert to Latex pdf (latest support, work in progress)

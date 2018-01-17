@@ -72,6 +72,12 @@ docogen.generate_latexpdf( src_path , dest_path , options ,(err,msg)=>{
 
 * See all current support method in `test/`! Enjoy!
 
+### Some practical usage
+
+* Example - [project usage](https://github.com/kevinbird61/simulation-video-encoder/tree/master/doc)
+   * using `doc.js` as entry to take advantage of `docoGen`
+   * then generate the pdf from scripts under `script/`.
+
 # Join us
 [![Slack Status](https://img.shields.io/badge/slack-active-pink.svg)](https://docogen-team.slack.com)
 
